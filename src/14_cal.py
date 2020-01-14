@@ -22,3 +22,16 @@ and does the following:
 import sys
 import calendar
 from datetime import datetime
+
+user_input = sys.argv
+my_cal = calendar.TextCalendar(firstweekday=6)
+date_today = datetime.today()
+
+if len(user_input) == 1:
+    my_cal.prmonth(date_today.year, date_today.month)
+elif len(user_input) == 2:
+    my_cal.prmonth(date_today.year, int(user_input[1]))
+elif len(user_input) == 3:
+    my_cal.prmonth(int(user_input[2]), int(user_input[1]))
+else:
+    print("Usage: 14_cal.py month [year]")
